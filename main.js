@@ -11,15 +11,12 @@ document.addEventListener('DOMContentLoaded', function(){
 			const firstTouch = getTouches(e)[0];
 			xOld = firstTouch.clientX;
 			yOld = firstTouch.clientY;
-			e.preventDefault();
 		}, false);
 
 		id.addEventListener('touchmove', function(e){
 			if (!xOld || !yOld) {
 				return;
 			}
-
-			e.preventDefault();
 
 			let xNew = e.touches[0].clientX, yNew = e.touches[0].clientY;
 			let xDiff = xNew - xOld, yDiff = yNew - yOld;
@@ -52,6 +49,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		}, false);
 
 		id.addEventListener('touchend', function(e){
+			if (xOld && yOld){
+				let xNew = e.clientX, yNew = e.clientY;
+				let xDiff = xNew - xOld, yDiff = yNew - yOld;
+				if (Math.abs(xDiff) + Math.abs(yDiff) > swipe_threshold){
+					e.preventDefault();
+				}
+			}
+
 			xOld = yOld = null;
 		}, false);
 	}
