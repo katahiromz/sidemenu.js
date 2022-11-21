@@ -1,0 +1,109 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+:root {
+	--hamburger-size: 32px;
+	--header-size: calc(5px + var(--hamburger-size) + 5px);
+	--footer-size: 40px;
+	--main-size: calc(100% - var(--header-size) - var(--footer-size));
+}
+html, body {
+	height: 100%;
+}
+body {
+	overflow: hidden;
+}
+a {
+	user-select: none;
+	-webkit-user-drag: none;
+}
+header {
+	display: block;
+	height: var(--header-size);
+	border: black 1px solid;
+}
+header h1 {
+	margin-left: var(--header-size);
+	display: inline;
+	font-size: calc(var(--hamburger-size) - 10px);
+	height: var(--header-size);
+	line-height: var(--header-size);
+	vertical-align: middle;
+}
+main {
+	display: block;
+	height: var(--main-size);
+	background-color: yellow;
+}
+footer {
+	display: block;
+	height: var(--footer-size);
+	bottom: var(--footer-size);
+	background-color: cyan;
+}
+.sidemenu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 50;
+	background-color: #3584ff;
+	font-size: 22px;
+}
+.sidemenu ul {
+	padding-top: var(--header-size);
+	list-style: none;
+}
+.sidemenu ul li {
+	border-bottom: solid 1px #fff;
+}
+.sidemenu ul li a {
+	display: block;
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	color: #fff;
+	text-decoration: none;
+	padding: 9px 15px;
+}
+.sidemenu ul li a:hover {
+	color: #fff;
+	background-color: #99f;
+}
+.sidemenu {
+	position: absolute;
+	left: max(-80%, -300px);
+	top: 0;
+	width: min(80%, 300px);
+	height: 100%;
+	z-index: 80;
+	transition: all 0.5s;
+	user-select: none;
+}
+#hamburger_button {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: var(--hamburger-size);
+	height: var(--hamburger-size);
+	background-image: url(hamburger.png);
+	background-size: 100%;
+	border: 1px solid lightgray;
+	z-index: 100;
+	transition: all 0.35s;
+}
+#hamburger_button:hover {
+	background-color: #fdd;
+}
+#sidemenu_checkbox {
+	display: none;
+}
+#sidemenu_checkbox:checked ~ .sidemenu {
+	left: 0;
+}
+#sidemenu_checkbox:checked ~ #hamburger_button {
+	background-image: url(cross.png);
+	transition: all 0.35s;
+}
