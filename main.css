@@ -27,7 +27,7 @@ header {
 }
 header h1 {
 	margin-left: var(--header-size);
-	font-size: calc(var(--hamburger-size) - 10px);
+	font-size: calc(var(--hamburger-size) - 12px);
 	height: var(--header-size);
 	line-height: var(--header-size);
 	vertical-align: middle;
