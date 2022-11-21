@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	}, function(){
 		sidemenu_checkbox.checked = false;
 	});
-	
+
 	main.addEventListener('click', function(e){
 		if (sidemenu_checkbox.checked){
 			sidemenu_checkbox.checked = false;
