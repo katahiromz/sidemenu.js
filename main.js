@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	function setTouchFunctions(id, onClick, onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown){
 		let xOld = null, yOld = null;
+		let touched = false;
 
 		id.addEventListener('click', function(e){
 			if (onClick){
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			const firstTouch = getTouches(e)[0];
 			xOld = firstTouch.clientX;
 			yOld = firstTouch.clientY;
+			touched = false;
 		}, false);
 
 		id.addEventListener('touchmove', function(e){
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
 							onSwipeLeft();
 						}
 					}
+					touched = true;
 				}
 			} else {
 				if (Math.abs(yDiff) > swipe_threshold){
@@ -51,20 +54,18 @@ document.addEventListener('DOMContentLoaded', function(){
 							onSwipeUp();
 						}
 					}
+					touched = true;
 				}
 			}
 		}, false);
 
 		id.addEventListener('touchend', function(e){
-			if (xOld && yOld){
-				let xNew = e.clientX, yNew = e.clientY;
-				let xDiff = xNew - xOld, yDiff = yNew - yOld;
-				if (Math.abs(xDiff) + Math.abs(yDiff) > swipe_threshold){
-					e.preventDefault();
-				}
+			if (touched){
+				e.preventDefault();
 			}
 
 			xOld = yOld = null;
+			touched = false;
 		}, false);
 	}
 
