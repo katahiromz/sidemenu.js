@@ -11,12 +11,15 @@ document.addEventListener('DOMContentLoaded', function(){
 			const firstTouch = getTouches(e)[0];
 			xOld = firstTouch.clientX;
 			yOld = firstTouch.clientY;
+			e.preventDefault();
 		}, false);
 
 		id.addEventListener('touchmove', function(e){
 			if (!xOld || !yOld) {
 				return;
 			}
+
+			e.preventDefault();
 
 			let xNew = e.touches[0].clientX, yNew = e.touches[0].clientY;
 			let xDiff = xNew - xOld, yDiff = yNew - yOld;
