@@ -32,29 +32,29 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			if (Math.abs(xDiff) > Math.abs(yDiff)){
 				if (Math.abs(xDiff) > swipe_threshold){
+					touched = true;
 					if (xDiff < 0){
 						if (onSwipeRight){
-							onSwipeRight();
+							onSwipeRight(e);
 						}
 					} else {
 						if (onSwipeLeft){
-							onSwipeLeft();
+							onSwipeLeft(e);
 						}
 					}
-					touched = true;
 				}
 			} else {
 				if (Math.abs(yDiff) > swipe_threshold){
+					touched = true;
 					if (yDiff < 0){
 						if (onSwipeDown){
-							onSwipeDown();
+							onSwipeDown(e);
 						}
 					} else {
 						if (onSwipeUp){
-							onSwipeUp();
+							onSwipeUp(e);
 						}
 					}
-					touched = true;
 				}
 			}
 		}, false);
