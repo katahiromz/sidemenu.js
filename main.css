@@ -8,6 +8,7 @@
 	--header-size: calc(var(--border-size) + var(--hamburger-size) + var(--border-size));
 	--footer-size: 40px;
 	--main-size: calc(100% - var(--header-size) - var(--footer-size));
+	--sidemenu-font-size: 22px;
 }
 html, body {
 	height: 100%;
@@ -51,7 +52,7 @@ footer {
 	z-index: 80;
 	user-select: none;
 	background-color: #3584ff;
-	font-size: 22px;
+	font-size: var(--sidemenu-font-size);
 	transition: all 0.5s;
 }
 .sidemenu ul {
