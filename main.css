@@ -4,7 +4,8 @@
 }
 :root {
 	--hamburger-size: 32px;
-	--header-size: calc(5px + var(--hamburger-size) + 5px);
+	--border-size: 5px;
+	--header-size: calc(var(--border-size) + var(--hamburger-size) + var(--border-size));
 	--footer-size: 40px;
 	--main-size: calc(100% - var(--header-size) - var(--footer-size));
 }
@@ -25,7 +26,6 @@ header {
 }
 header h1 {
 	margin-left: var(--header-size);
-	display: inline;
 	font-size: calc(var(--hamburger-size) - 10px);
 	height: var(--header-size);
 	line-height: var(--header-size);
@@ -44,16 +44,19 @@ footer {
 }
 .sidemenu {
 	position: absolute;
+	left: max(-80%, -300px);
 	top: 0;
-	left: 0;
-	width: 100%;
+	width: min(80%, 300px);
 	height: 100%;
-	z-index: 50;
+	z-index: 80;
+	user-select: none;
 	background-color: #3584ff;
 	font-size: 22px;
+	transition: all 0.5s;
 }
 .sidemenu ul {
-	padding-top: var(--header-size);
+	padding: var(--border-size);
+	padding-top: calc(var(--header-size) + var(--border-size));
 	list-style: none;
 }
 .sidemenu ul li {
@@ -61,31 +64,17 @@ footer {
 }
 .sidemenu ul li a {
 	display: block;
-	position: relative;
-	width: 100%;
-	box-sizing: border-box;
 	color: #fff;
 	text-decoration: none;
 	padding: 9px 15px;
 }
 .sidemenu ul li a:hover {
-	color: #fff;
 	background-color: #99f;
-}
-.sidemenu {
-	position: absolute;
-	left: max(-80%, -300px);
-	top: 0;
-	width: min(80%, 300px);
-	height: 100%;
-	z-index: 80;
-	transition: all 0.5s;
-	user-select: none;
 }
 #hamburger_button {
 	position: absolute;
-	top: 5px;
-	left: 5px;
+	top: var(--border-size);
+	left: var(--border-size);
 	width: var(--hamburger-size);
 	height: var(--hamburger-size);
 	background-image: url(hamburger.png);
