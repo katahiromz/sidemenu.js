@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		if (sidemenu_checkbox.checked){
 			sidemenu_checkbox.checked = false;
 		}
+		e.preventDefault();
 	}, function(e){
 		sidemenu_checkbox.checked = true;
 	}, function(e){
