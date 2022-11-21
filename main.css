@@ -78,7 +78,7 @@ footer {
 	left: var(--border-size);
 	width: var(--hamburger-size);
 	height: var(--hamburger-size);
-	background-image: url(hamburger.png);
+	background-image: url(img/hamburger.png);
 	background-size: 100%;
 	border: 1px solid lightgray;
 	z-index: 100;
@@ -94,6 +94,6 @@ footer {
 	left: 0;
 }
 #sidemenu_checkbox:checked ~ #hamburger_button {
-	background-image: url(cross.png);
+	background-image: url(img/cross.png);
 	transition: all 0.35s;
 }
